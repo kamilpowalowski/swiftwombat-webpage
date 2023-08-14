@@ -1,0 +1,22 @@
+name: publish
+on:
+  push:
+    branches: ["main"]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: swift-actions/setup-swift@v1
+
+      - name: Build documentation
+        run: swift package generate-documentation --transform-for-static-hosting
+
+      - name: Deploy to Netlify
+        uses: South-Paw/action-netlify-cli@1.0.1
+        id: swiftwombat
+        with:
+          args: deploy --json --prod  --message 'Build from commit [${{ github.sha }}]'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

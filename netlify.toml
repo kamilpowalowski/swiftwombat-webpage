@@ -1,0 +1,36 @@
+[build]
+command = "swift package generate-documentation --transform-for-static-hosting"
+publish = ".build/plugins/Swift-DocC/outputs/SwiftWombat.doccarchive/"
+
+[[redirects]]
+from = "/documentation/*"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/tutorials/*"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/data/documentation.json"
+status = 200
+to = "/data/documentation/swiftwombat.json"
+
+[[redirects]]
+force = true
+from = "/"
+status = 302
+to = "/documentation/"
+
+[[redirects]]
+force = true
+from = "/documentation"
+status = 302
+to = "/documentation/"
+
+[[redirects]]
+force = true
+from = "/tutorials"
+status = 302
+to = "/tutorials/"
