@@ -10,7 +10,7 @@ jobs:
       - uses: swift-actions/setup-swift@v1
 
       - name: Build documentation
-        run: swift package generate-documentation --transform-for-static-hosting
+        run: swift package --allow-writing-to-directory .docs generate-documentation --disable-indexing --transform-for-static-hosting --output-path .docs
 
       - name: Deploy to Netlify
         uses: South-Paw/action-netlify-cli@1.0.1
