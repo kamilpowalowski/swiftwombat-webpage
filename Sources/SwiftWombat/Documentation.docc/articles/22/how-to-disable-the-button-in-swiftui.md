@@ -36,4 +36,6 @@ VStack {
 
 ![Disable button Xcode Example](disable-button-xcode-example)
 
-Want to test it yourself? Download this [Xcode Project](https://github.com/kamilpowalowski/swiftwombat-webpage/).
+Want to test it yourself? Download this [repository](https://github.com/kamilpowalowski/swiftwombat-webpage/).
+
+@Small { 2021-03-28 11:56 }
